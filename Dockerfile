@@ -1,6 +1,8 @@
 FROM node:0.12
 MAINTAINER Kevin Goedecke <goedecke@net-studios.de>
 
+RUN apt-get update && apt-get install -y libkrb5-dev
+
 RUN useradd -ms /bin/bash strong-pm \
     && chown -R strong-pm:strong-pm /usr/local \
     && su strong-pm -c "npm install -g strong-pm" \
